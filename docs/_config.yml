@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: ene igual a uno
+title: N = 1 
 description: >- # this means to ignore newlines until "baseurl:"
   A collection of blog posts mostly about programming and the industry
   with a bunch of random blogs thrown in for good measure.
