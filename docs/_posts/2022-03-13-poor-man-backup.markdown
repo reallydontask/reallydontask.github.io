@@ -1,10 +1,9 @@
 ---
 layout: post
-title:  "Poor man's cloud backup"
+title:  "Poor Man's Azure Backup"
 date:   2022-03-13 11:37:24 +0100
 categories: azure cloud 
 ---
-# Poor Man's Azure Backup
 
 Azure offers a backup service, which following Azure naming conventions is simply called [Azure Backup](https://azure.microsoft.com/en-gb/pricing/details/backup/#overview). There is nothing wrong with this service and I've used it in the past but I wondered if it would be possible to _backup_ directly to a storage account.
 
