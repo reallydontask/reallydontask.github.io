@@ -9,14 +9,14 @@ The Ministry of Justice has a [code in the open policy](https://mojdigital.blog.
 
 When I set out to scan the repositories I was aware of two issues:
 
- - A very obvious [hardcoded password](https://github.com/ministryofjustice/staff-infrastructure-azure-landing-zone/blob/233df6fa3192a06d2945f595fced8d581327bd3d/terraform/environments/pullrequest/terraform-azurerm-vmstopstart/main.tf#L84) however this isn't a massive issue as the VMs are ephemeral and not accessible from the internet. In any case this is good test case for the tools
+ - A very obvious [hardcoded password](https://github.com/ministryofjustice/staff-infrastructure-azure-landing-zone/blob/233df6fa3192a06d2945f595fced8d581327bd3d/terraform/environments/pullrequest/terraform-azurerm-vmstopstart/main.tf#L84), apologies this is likely to not be public for a bit yet, however this isn't a massive issue as the VMs are ephemeral (used for integration tests) and not accessible from the internet anyway. In any case, I think this is good test case.
 
-- A Teams webhook in a tfvars file. This is a less obvious test case as it's mostly composed of guids.
+- A Teams webhook in a tfvars (Terraform variables) file. This is perhaps a less obvious test case, due to being a url.
 
 
-As part of the scanning we also found a powershell script that had a storage account key hardcoded that had been deleted so it is in an old commit.
+As part of the scanning we also found a powershell script that had a storage account key hardcoded that had been already been deleted, so this provided another test case both for git log scanning and the key itself..
 
-The process for selecting the tools was relatively simple, somebody in the security team suggested a bunch of tools that we could try so I tried a few of them, not all, for instance couldn't try github secret scanning as my org doesn't allow it .
+The process for selecting the tools was relatively simple, somebody in the security team suggested a bunch of tools that we could try so I tried a few of them, not all, for instance couldn't try [github secret scanning](https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning) as my it's currently disabled for our org.
 
 ## Results
 
@@ -30,16 +30,17 @@ I must admit that I was disappointed with the results found, summarized in the t
 |[gittyleaks](https://github.com/kootenpv/gittyleaks)| No | Yes |  No | No |```gittyleaks --find-anything``` |
 |[detect-secrets](https://github.com/Yelp/detect-secrets)| No | Yes |  No | No |```detect-secrets scan``` |
 |[shhgit](https://github.com/eth0izzle/shhgit)| No | No |  No | No |```./shhgit --local <path to repo>``` |
-|[gitGuardian](https://gitguardian.com)| Yes | No |  Yes | Yes |```This required the installation of the GitGuardian app in Github and grant read access to the relevant repositories``` |
-|[spectralOps](https://spectralops.io)| Yes | Yes |  Yes | No |```spectral scan --include-tags base,audit``` |
+|[gitGuardian](https://gitguardian.com)| Yes (free plan available) | No |  Yes | Yes |```This required the installation of the GitGuardian app in Github and grant read access to the relevant repositories``` |
+|[spectralOps](https://spectralops.io)| Yes (free plan available) | Yes |  Yes | No |```spectral scan --include-tags base,audit``` |
 
 
-A lot of the tools seem to do very basic checks, which will help you to recover from obvious mistakes that should've been spotted in a PR process. I should say that I'm not disparaging the tools, these mistakes happen all the time, so they do provide some value.
+A lot of the tools seem to do very basic checks, filenames/types and keywords, which will help you to recover from obvious mistakes that should've been spotted in a PR process. I should say that I'm not disparaging the tools, these mistakes happen all the time, so they do provide some value.  
+However, if you are looking for tools that find hardcoded passwords or tokens that might be less obviously named, your mileage will vary quite a bit.
 
 
 ## TruffleHog
 
-This tool was extremely dissappointing as it just found High Entropy items on the readme files and a random arm template, which for reasons unknown to me contain a png file.  It found nothing on the other repos of consequence.
+This tool was disappointing as it just found High Entropy items on the readme files and a random arm template, which for reasons unknown to me contain a png file.  It found nothing on the other repos of consequence.
 
 ## Repo-Security-Scanner
 
@@ -53,7 +54,7 @@ This tool does find the password and it also matches a lot of keywords like key 
 
 This tool does find the password and it also finds a key that I didn't even know was there, ASPNETCORE_AUTO_RELOAD_WS_KEY. This is actually commented out and I'm not 100% sure what it does, though I can speculate.  Google is not very helpful.
 
-Unfortunately, it doesn't find the teams webhook nor the storage account key, though I don't think this scans the log
+Unfortunately, it doesn't find the teams webhook nor the storage account key, though I don't think it scans the git log.
 
 ## shhgit
 
@@ -61,11 +62,11 @@ Another disappointing tool, it just seems to find terraform.tfvars
 
 ## Git Guardian
 
-This is a paid tool, so you get a nice frontend and integration with things like Slack, anyway. I'm disappointed that it hasn't found the password but pleasently surprised that it has found the Teams webhook and this is how I learned about the storage account key.
+This is a paid tool, so you get a nice frontend and integration with things like Slack, anyway. I'm disappointed that it hasn't found the password but pleasantly surprised that it has found the Teams webhook and this is how I learned about the storage account key that had been deleted.
 
 ## SpectralOps
 
-This is another paid tool, similar to git guardian. Instead of installing the github app, I have used their CLI tool, which works really well and will post the results to their portal.
+This is another paid tool, similar to git guardian. I used the CLI tool directly, which works really well and will post the results to their portal, you need to set up an environment variable with a api key.
 
 It's disappointing that it didn't catch the storage account key even when running on history mode.
 
