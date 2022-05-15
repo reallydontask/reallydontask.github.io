@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "What else can I change"
+title:  "What else can I change?"
 date:   2022-05-14 07:47:10 +0100
 categories: mental meanderings
 ---
