@@ -7,7 +7,7 @@ categories: observations recruitment
 
 This is a screenshot from my spam folder from a few months ago (I'm a slow writer, OK), the only editing I have done is to remove the non-recruiter emails.
 
-![Recruiters](../assets/recruiterspam.png)
+![Recruiters](/assets/recruiterspam.png)
 
 I've attempted to summarize in a more digestible form:
 
