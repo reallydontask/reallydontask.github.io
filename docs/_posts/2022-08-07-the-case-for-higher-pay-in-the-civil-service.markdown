@@ -72,11 +72,11 @@ This is sadly pretty common and my experience not the case, but when I raised th
 
 A [final one](https://www.civilservicejobs.service.gov.uk/csr/index.cgi?SID=b3duZXJ0eXBlPWZhaXImc2VhcmNocGFnZT0xJnVzZXJzZWFyY2hjb250ZXh0PTU4ODAxMTEmb3duZXI9NTA3MDAwMCZwYWdlYWN0aW9uPXZpZXd2YWNieWpvYmxpc3Qmc2VhcmNoc29ydD1zY29yZSZqb2JsaXN0X3ZpZXdfdmFjPTE4MDE4MDAmcGFnZWNsYXNzPUpvYnMmcmVxc2lnPTE2NTk4Njc4NzctZTY4YTIxMTNlN2JkOGE4MTQxMTU4ZWM1NzlmNzMzZmMzMGMwMDYxNg==)
 
-![seniordevops](/assests/2022-08-07-senior_devops_eng.png)
+![seniordevops](/assets/2022-08-07-senior_devops_eng.png)
 
 On the face of it, this one doesn't look too bad, sure you can get paid more in Industry but then you find this, which might leave you a bit confused as to what is the salary on offer, given that the locations are both National, I suspect that what's shown is the banding for London.
 
-![seniordevops](/assests/2022-08-07-senior_devops_eng2.png)
+![seniordevops](/assets/2022-08-07-senior_devops_eng_2.png)
 
 Those are actually three of the better looking hits when searching for devops in the civil service jobs.
 
