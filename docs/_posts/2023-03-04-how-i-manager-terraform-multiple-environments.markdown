@@ -20,7 +20,7 @@ While I appreciate that terragrunt can help with much more than just sharing cod
 
 Anyway, without further ado, this is what I normally do:
 
-
+```
 └── terraform
     ├── environments
     │   ├── dev
@@ -43,6 +43,7 @@ Anyway, without further ado, this is what I normally do:
     |   └── producer
     ├── main.tf    
     └── variables.tf
+```
 
 The code is written once in the terraform directory and then by virtue of the symlinks it's available for all environments at once. If you need to add a new file, you will need to add the symlinks to all environments or all environments that you want, e.g. maybe you have a need for an integration server only in staging and prod.
 
