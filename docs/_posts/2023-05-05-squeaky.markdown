@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "Incidents vs slow fixes"
+date:   2023-05-24 08:46:10 +0100
+categories: rant
+---
+
+A few months back I caused an outage. This was caused by a chain of failures:
+
+- no validation on script used to configuration
+- no validation on code
+- problems with restarting instances
+
+
+The thing is that once the issue was fix I got congratulated for fixing the issue all the way up to the CEO.
+
+Compare that to maxdop where nobody said a thing
