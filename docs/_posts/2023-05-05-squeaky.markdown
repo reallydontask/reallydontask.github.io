@@ -1,0 +1,50 @@
+---
+layout: post
+title:  "We don't need another hero: Incidents vs Slow Fixes."
+date:   2023-05-25 08:46:10 +0100
+categories: rant
+---
+
+>We don't need another hero  
+We don't need to know the way home  
+All we want is life beyond Thunderdome  
+
+We Don't Need Another Hero by Tina Turner
+
+
+## Background
+
+A few months back I caused an outage on our SaaS offering, probably about 50% of our customers. As with most big outages, it was caused by a chain of failures:
+
+1. No validation on the script used to set configuration values.
+2. Code did not validate configuration.
+3. Script did not restart instances, thus issues would only become apparent after a scale out event or a release.
+4. Observability was lacking in some areas.
+
+
+## The Incident
+
+I run the script after the stand up and made some cursory checks that did not reveal any issues so I carried on with my day.
+
+Around midday we get some reports that some users are seeing issues, so we investigate and come to the wrong conclusion, this is due to gaps in our knowledge of our product and panic due to the fact that this is has now become a full outage after we decided to restart all instances to try to fix the issue.
+
+Anyway, long story short, after a few hours I finally managed to get access to the logs on the instance rather than through Raygun and then it hits me, it's the config change I made in the morning.
+
+The issue is fixed and lessons are learned.
+
+
+## The Aftermath
+
+This is where things become interesting for me.  I was congratulated by my line manager, by the CTO and even by the CEO of our admittedly small company.
+
+There were no recriminations and the post mortem was truly blameless, so far so good.
+
+The really interesting bit for me is how this compares with when [I single handedly fixed the performance of our database for our SaaS offering](2023-04-22-magic-setting.markdown).
+
+In that post, I did touch on how it had become the number one priority but I did not go into much detail how much of an issue for our customers this was. Essentially our customers were seeing daily periods of the product being close to being unusable with 10+ second page loads.
+
+Furthermore this scuppered plans of growing the amount of customers on our SaaS offering, forcing us back down the route of big customers get their own environment. All in all, this performance issue presented a threat to, if not the viability of the company, at least a serious threat to the profitability of the company, due to how serious and common the performance issues were. 
+
+So you might have expected a huge round of congratulations and maybe even some vouchers or some monetary reward of some description when I finally fixed the issue, alas you'd probably not be surprised to learn that I actually not received anything AT ALL, not even thank you from my line manager, you had the gall to ask me, if I had been involved in the work at some point. To be fair, my colleague in the devops team was very appreciative.
+
+So maybe we do need another hero after all.
