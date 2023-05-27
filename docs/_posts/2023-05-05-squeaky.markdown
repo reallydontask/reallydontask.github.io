@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "We don't need another hero. Incidents vs Slow Fixes."
+title:  "We don't need another hero: Incidents vs Slow Fixes."
 date:   2023-05-25 08:46:10 +0100
 categories: rant
 ---
@@ -41,10 +41,10 @@ There were no recriminations and the post mortem was truly blameless, so far so 
 
 The really interesting bit for me is how this compares with when [I single handedly fixed the performance of our database for our SaaS offering](2023-04-22-magic-setting.markdown).
 
-In that post, I did touch on how it had become the number one priority but I did not go into much detail how much of an issue for our customers this was, essentially they were seeing daily periods of the product being close to being unusable. 
+In that post, I did touch on how it had become the number one priority but I did not go into much detail how much of an issue for our customers this was. Essentially our customers were seeing daily periods of the product being close to being unusable with 10+ second page loads.
 
-Furthermore this scuppered plans of growing the amount of customers on our SaaS offering, rather than individual environments. All in all, this performance issue presented a threat to, if not the viability of the company, at least a serious threat to the profitability of the company, due to how serious and common the performance issues were. 
+Furthermore this scuppered plans of growing the amount of customers on our SaaS offering, forcing us back down the route of big customers get their own environment. All in all, this performance issue presented a threat to, if not the viability of the company, at least a serious threat to the profitability of the company, due to how serious and common the performance issues were. 
 
-So you might have expected a huge round of congratulations and maybe even some vouchers or some monetary reward of some description, alas you'd probably not be surprised to learn that I actually not received anything, not even thank you from my line manager, you had the gall to ask me, if I had been involved in the work at some point.
+So you might have expected a huge round of congratulations and maybe even some vouchers or some monetary reward of some description when I finally fixed the issue, alas you'd probably not be surprised to learn that I actually not received anything AT ALL, not even thank you from my line manager, you had the gall to ask me, if I had been involved in the work at some point. To be fair, my colleague in the devops team was very appreciative.
 
-So maybe we do need another hero.
+So maybe we do need another hero after all.
