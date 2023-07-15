@@ -7,7 +7,7 @@ categories: rant
 
 I recently started a new position as a team leader and received an email with an attachment and this subject:
 
-> Re:Ansible
+> Re: Ansible
 
 We don't use Ansible, we're not thinking of using Ansible and I certainly hadn't sent anybody an email with __Ansible__ as the subject, so this immediately screamed scam to me.
 
