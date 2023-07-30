@@ -16,6 +16,6 @@ It is, of course, entirely possible that they are doing this already, namely abs
 I just find it annoying that the profits of the companies are never mentioned as nobody would bat an eyelid* about company profits but everybody cares about their premiums.
 
 
-\* Would somebody think about the pension funds?
+\* Would somebody think of the pension funds?
 
  
