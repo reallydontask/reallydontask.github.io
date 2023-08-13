@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The drunkard looking for his keys under the streelight problem"
+title:  "The drunkard looking for his keys under the streetlight problem"
 date:   2023-08-08 01:37:24 +0100
 categories: mental meanderings rant
 ---
