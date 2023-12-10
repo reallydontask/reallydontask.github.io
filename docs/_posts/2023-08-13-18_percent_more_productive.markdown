@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "18% more productive"
-date:   2023-08-13 01:37:24 +0100
+date:   2023-12-10 01:37:24 +0100
 categories: mental meanderings managerial wars
 ---
 
