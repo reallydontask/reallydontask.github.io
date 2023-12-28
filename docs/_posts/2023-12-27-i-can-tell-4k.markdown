@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "I can't tell the difference between 4K and 1080 and neither can you ... probably"
+date:   2023-12-27 10:37:24 +0100
+categories: mental meanderings
+---
+
+A few months back Netflix raised prices again so I decided to drop down to the Standard plan. This was at the beginning of the billing cycle so I just forgot about it.
+
+Fast forward to a few days back, when I remembered the plan change and I realized that I hadn't noticed any change at all nor any noticeable decrease in quality when compared with Disney+, my little one loves to watch stuff from both, though to be fair I'm not sure how much of the kids stuff is 4K or indeed from Youtube, though I guess a similar caveat applies to content.
+
+The fact that I've not noticed anything is in itself not that surprising, given what we know about screen resolution and watching distance (graph from RTINGS), which for us with a 55" TV watched from ~3 m away, suggests that we barely benefit from 1080, but, but I swear I can tell the difference ... ¯\\\_(ツ)_/¯
+
+
+![4k](/assets/2023-12-27-optimal-viewing-distance-television-graph-size.png)
+
