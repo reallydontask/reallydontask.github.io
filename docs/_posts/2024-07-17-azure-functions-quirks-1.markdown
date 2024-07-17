@@ -24,6 +24,9 @@ For reasons that would take too long to explain we use this script as part of th
 It would be preferable to do it in Terraform as it handles randomness without constant regenerations, but as I said it would take too long to explain.
 
 ```powershell
+$rg="my-resource-group"
+$name="my-function-name"
+
 $pattern = "AzureFunctionsWebHost__hostid"
 
 $prodId='fDHTRecVwLZWaoQ98ltBEiby4gArvqxS' # Generated with:  -join ((65..90) + (97..122) + (48..57) | Get-Random -Count 32 | ForEach-Object {[char]$_})
