@@ -12,19 +12,21 @@ If you are not familiar with [Land Value Tax (LVT)](https://en.wikipedia.org/wik
 
 In other words, the land gets taxed and not what's built on top of it.
 
-It's often advocated as the solution to housing shortages, in fact the second question (at the time of writing) on the [georgism subreddit](https://www.reddit.com/r/georgism/wiki/faq) is:
+It's often advocated as the solution to housing shortages, the thinking is that by taxing land, unused land might get assigned to more productive use, e.g. housing
 
-> Won’t the site rent be passed on to the tenant?
+One common criticism is that landlords will just pass the cost on to tenants, while this seems reasonable, it's normally shot down by LVT advocates who say that landlords already charge as much as the market will bear.
 
-The answer very much feels like begging the question: site will not be passed on to the tenant because site rent will not be passed on to the tenant.
+Is this a reasonable assertion?
 
-Take for instance the first sentence:
+Let's do a thought experiment.
 
-> Site rent cannot be passed onto the tenant because the landlord is already charging the market price.
+The actual level of LVT matters, too low and it won't change anything, too high and it will be crippling, contested in court, etc.. but what is the effect on rent?
 
-There is no qualification here, landlords **always** charge market price, there doesn't seem to be space for the army of accidental landlords that are quite happy with a tenant paying their mortgage and rather not risk losing a good tenant over £600 a year.
+To simplify things in our thought experiment, a 10% LVT rate means that on a rent of £1000 per month, LVT would be £100 per month, 5% would be £50 per month and so on. This is because calculating actual LVT rates and their effects on rents will involve a lot of guess work and not really important for this thought experiment.
 
-I'm not going to dissect every sentence of the answer but I thought it would be interesting to do a thought experiment into what would happen if LVT were introduced.
+# 20% LVT
 
+# 10% LVT
 
+# 5% LVT
 
