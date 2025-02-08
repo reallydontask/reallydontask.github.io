@@ -8,8 +8,7 @@ categories: terraform
 - [Introduction](#introduction)
 - [Rationale](#rationale)
 - [Configuration in Code](#configuration-in-code)
-- [Advantages](#advantages)
-- [Disadvantages](#disadvantages)
+- [Is this for Me?](#is-this-for-me)
 
 
 
@@ -21,11 +20,13 @@ In this post I'd like to introduce a configuration pattern for terraform that we
 
 We have quite a lot of environments that are **mostly** the same, however unlike in other places I've worked the differences are not necessarily the obvious ones, e.g. use different SKUs in prod or ignore region resilience requirements in non production but are actually a bit more subtle, e.g. function app X is needed in dev, qa1 and prod1 but not qa2 or prod2 or prod3 o servicebus namespace is needed only dev/qa2/prod2.
 
-As the configuration is/was managed, by and large, in a catch all terraform.tfvars (though we have some specific tfvars, e.g. entra or aks) adding cloud resources to the correct environments only was tedious, as we needed to add the same terraform object up to 10 times (more if we include the failover environments), and error prone, as we often ended up with resources not being added to all needed environments, which was a combination of how the resources were requested (piecemeal) and how we promoted stuff into production.
+As the configuration is/was managed in a catch all terraform.tfvars (though we do have some more thematic tfvars, e.g. entra or aks) adding cloud resources to the correct environments was tedious, as we needed to add the same terraform object a lot of times, and  error prone, as we often ended up with resources not being added to all needed environments or the opposite problem of adding resources where they were not needed. This is to say nothing of the failover environments.
 
 ## Configuration in Code
 
-The idea is pretty simple, move your tfvars configuration into a terraform file, within reason, and toggle configuration on/off with the env variable
+The idea is pretty simple, move your tfvars configuration into a terraform file as a local value and toggle configuration on/off with the env variable.
+
+To be clear, this doesn't mean a complete elimination of the use of tfvars, at the very least we need a single variable to differentiate between environments but in practice there are a few other variables that don't really fit this pattern, e.g. vnet ip ranges.
 
 This is an example of the config for functions that are deployed to aks.  We then loop through these to create the azure resources, e.g. app insights, storage accounts, etc ...
 
@@ -76,13 +77,14 @@ locals {
 }
 ```
 
-## When to Use
+A full sample can be found in this [gist]()
 
+## Is this for Me?
 
-## When not to use
+If you have a lot of environments that are subtly different then you could benefit from this approach. This could also be really useful if the number of environments is increasing, 
+e.g. you've finally decided that resilience is important or your company is expanding.
 
-Unfortuntely, there are downsides to this approach that it's probably worth bearing in mind.
+If on the other hand, your environments mostly differ by SKU then this approach probably makes little sense.
 
-Firstly, there is probably little need if your environments are the same apart from sku changes.
-
-I think the most annoying one is the lack of defaults in the locals, which can be normally be remedied by using try in the resource/module call but sometimes this is not possible.
+Terraform type system isn't great, still it can be annoying to get a local wrong rather than a variable and also the lack of defaults on the local variables means that you need to implement it on the resource/module, 
+except that this approach doesn't work if you need to do data manipulation with a for loop. You will need to add the values to the local in this case, not the end of the world but annoying nonetheless.
