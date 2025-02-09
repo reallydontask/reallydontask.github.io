@@ -86,5 +86,5 @@ e.g. you've finally decided that resilience is important or your company is expa
 
 If on the other hand, your environments mostly differ by SKU then this approach probably makes little sense.
 
-Terraform type system isn't great, still it can be annoying to get a local wrong rather than a variable and also the lack of defaults on the local variables means that you need to implement it on the resource/module, 
+Terraform type system isn't great, still it can be annoying to get a local wrong rather than a variable and also the lack of defaults on the local variables means that you need to implement the default directly in the resource/module, 
 except that this approach doesn't work if you need to do data manipulation with a for loop. You will need to add the values to the local in this case, not the end of the world but annoying nonetheless.
