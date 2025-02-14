@@ -77,6 +77,27 @@ locals {
 }
 ```
 
+You can also have individual values for a number of environments by using a map like this:
+
+```
+local {
+
+cloud_sku = {
+  qa = "cheap"
+  qa2 = "cheap"
+  prod1 = "expensive"
+  prod2 = "outrageus"
+}
+}
+
+resource "provider_resource" "this" {
+      sku    = try(local.cloud_sku[var.env], "free")
+}
+
+```
+
+One final comment is that this approach does not need to be absolute, namely, you can still use a tfvars file for config that is to complex too have in code.
+
 A full sample can be found in this [gist]()
 
 ## Is this for Me?
@@ -86,5 +107,6 @@ e.g. you've finally decided that resilience is important or your company is expa
 
 If on the other hand, your environments mostly differ by SKU then this approach probably makes little sense.
 
-Terraform type system isn't great, still it can be annoying to get a local wrong rather than a variable and also the lack of defaults on the local variables means that you need to implement the default directly in the resource/module, 
-except that this approach doesn't work if you need to do data manipulation with a for loop. You will need to add the values to the local in this case, not the end of the world but annoying nonetheless.
+Firstly, there is probably little need if your environments are the same apart from sku changes.
+
+I think the most annoying one is the lack of defaults in the locals, which can be normally be remedied by using try in the resource/module call but sometimes this is not possible.
