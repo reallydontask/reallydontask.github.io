@@ -11,16 +11,19 @@ categories: terraform
 - [Is this for Me?](#is-this-for-me)
 
 
-
 ## Introduction
 
-In this post I'd like to introduce a configuration pattern for terraform that we've called Configuration In Code, I couldn't use Configuration As Code, right?
+In this post, I’ll introduce a Terraform configuration pattern we’ve dubbed **Configuration In Code** (CiC). While "Configuration As Code" might sound more familiar, CiC offers a unique approach to managing complex environments with subtle differences.
 
 ## Rationale and Background
 
-We have quite a lot of environments that are **mostly** the same, however unlike in other places I've worked the differences are not necessarily the obvious ones, e.g. use different SKUs in prod or ignore region resilience requirements in non production but are actually a bit more subtle, e.g. function app X is needed in dev, qa1 and prod1 but not qa2 or prod2 or prod3 or servicebus namespace is needed only in dev/qa2/prod2.
+We manage numerous environments that are **mostly** similar, but unlike other places where I’ve worked, the differences aren’t always obvious. For example:
 
-As the configuration is/was managed in a catch all terraform.tfvars (though we do have some more thematic tfvars, e.g. entra or aks) adding cloud resources to the correct environments was tedious, as we needed to add the same tfvars ect a lot of times, and error prone, as we often ended up with resources not being added to all needed environments or more often, the opposite problem of adding resources where they were not needed. This is to say nothing of the failover environments.
+- Function App X might be needed in `dev`, `qa1`, and `prod1`, but not in `qa2`, `prod2`, or `prod3`.
+- A Service Bus namespace might only be required in `dev`, `qa2`, and `prod2`.
+
+These subtle variations make managing configurations tedious, as we needed to add the same tfvars ect a lot of times, and error prone, as we often ended up with resources not being added to all needed environments or more often, the opposite problem of adding resources where they were not needed. This is to say nothing of the failover environments.
+
 
 ## Configuration in Code
 
@@ -35,10 +38,17 @@ So how does this work in practice?  Well, below is an example of the config for 
 
 ```hcl
 locals {
-    aks_functions = merge(
+  aks_functions = merge(
+    # Enable clientlookup function in dev, qa, and prod1
     contains(["dev", "qa", "prod1"], var.env) ? { clientlookup = {} } : {},
+    
+    # Enable client function in dev, qa, and prod1 with App Insights
     contains(["dev", "qa", "prod1"], var.env) ? { client = { create_app_insights = true } } : {},
+    
+    # Enable provider function in dev, qa, and prod1 with App Insights and custom storage account
     contains(["dev", "qa", "prod1"], var.env) ? { provider = { create_app_insights = true, storage_account_name = "provider" } } : {},
+    
+    # Enable operator function in dev, qa2, and prod2 with App Insights and custom storage account
     contains(["dev", "qa2", "prod2"], var.env) ? { operator = { create_app_insights = true, storage_account_name = "operator" } } : {},
   )
 }
@@ -48,31 +58,40 @@ This approach also works to control things like the database SKU or whether a da
 
 ```hcl
 locals {
-  database = merge({
-    Adaptor = {
-      sku_tier = contains(["dev", "qa2"], var.env) ? "Basic" : "S0"
-      db_size  = 2
+  database = merge(
+    {
+      Adaptor = {
+        sku_tier = contains(["dev", "qa2"], var.env) ? "Basic" : "S0"
+        db_size  = 2
+      },
+      Session = {
+        sku_tier = contains(["dev", "qa2"], var.env) ? "Basic" : "S0"
+        db_size  = 2
+      }
     },
-    Session = {
-      sku_tier = contains(["dev", "qa2"], var.env) ? "Basic" : "S0"
-      db_size  = 2
-    }    },
+    # Enable Registration database only in dev
     contains(["dev"], var.env) ? {
       Registration = {
         sku_tier = "Basic"
         db_size  = 2
       }
-  } : {})
+    } : {}
+  )
 }
 ```
 
-This approach is not limited to maps/objects, it works also for lists/tuples. **is_regional** is a type of environment and is used instead of the more common: ```contains(["dev"], var.env)```
+This approach is not limited to maps/objects, it works also for lists/tuples. The **is_regional** local represents a type of environment and is used instead of the more common: ```contains(["dev"], var.env)```
 
 ```hcl
 locals {
-    secrets = concat(
+  secrets = concat(
+    # Common secret for all environments
     ["JobUserSql-Password"],
+    
+    # Regional-specific secret
     local.is_regional ? ["ServiceBus-ConnectionString"] : [],
+    
+    # Environment-specific secret for dev, qa, and prod1
     contains(["dev", "qa", "prod1"], var.env) ? ["KEDA-ConnectionString"] : []
   )
 }
@@ -82,29 +101,31 @@ You can also have individual values for a each environments by using a map like 
 
 ```
 locals {
+  database_sku = {
+    prod1 = { sku = "S0", size = 2 },
+    prod2 = { sku = "S0", size = 2 },
+    prod3 = { sku = "S2", size = 250 }
+  }
 
-database_sku = {
-  prod1 = {sku = "S0"}
-  prod1 = {sku = "S0"}
-  prod3 = {sku = "S2", size = 250}
-}
-
-database = merge({
-  Adaptor = {
-      sku_tier = try(local.database_sku[var.env].sku, "Basic")
-      db_size  = try(local.database_sku[var.env].size, 2)
-    },
-  Session = {
-      sku_tier = try(local.database_sku[var.env], "Basic")
-      db_size  = try(local.database_sku[var.env].size, 2)
-    }    },
-  contains(["dev"], var.env) ? {
-      Registration = {
-        sku_tier = try(local.database_sku[var.env], "Basic")
-       db_size  = try(local.database_sku[var.env].size, 2)
+  database = merge(
+    {
+      Adaptor = {
+        sku_tier = try(local.database_sku[var.env].sku, "Basic")
+        db_size  = try(local.database_sku[var.env].size, 2)
+      },
+      Session = {
+        sku_tier = try(local.database_sku[var.env].sku, "Basic")
+        db_size  = try(local.database_sku[var.env].size, 2)
       }
-  } : {})
-
+    },
+    # Enable Registration database only in dev
+    contains(["dev"], var.env) ? {
+      Registration = {
+        sku_tier = try(local.database_sku[var.env].sku, "Basic")
+        db_size  = try(local.database_sku[var.env].size, 2)
+      }
+    } : {}
+  )
 }
 
 ```
@@ -115,8 +136,9 @@ A full sample can be found in this [gist](https://gist.github.com/reallydontask/
 
 ## Is this for Me?
 
-If you have a lot of environments that are subtly different then you could benefit from this approach. This could also be really useful if the number of environments is increasing, 
-e.g. you've finally decided that resilience is important or your company is expanding or you have one environment per customer.
+If you manage multiple environments with subtle differences, **Configuration In Code** (CiC) can significantly streamline your workflow. It’s particularly useful when:
+- The number of environments is growing (e.g., for resilience or customer-specific setups).
+- Environment-specific configurations are complex and error-prone.
 
 If on the other hand, your environments mostly differ by SKU then this approach probably makes little sense as your code will probably just need to take in a different SKU right?, right?
 
