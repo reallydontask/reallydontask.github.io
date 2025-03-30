@@ -30,9 +30,9 @@ The main issue, however, is very similar to financial advice, namely:
 
 > Past performance is no guarantee of future results
 
-I don't think this needs further explanation.
+In other words just because I told a good story about how I mended fences with a colleague for the good of the project/company, does not mean that I wouldn't actually torch a project and then swoop in to the rescue so I get the promotion rather than the project lead.
 
-Here's your 🔦 hope it helps
+Here's your 🔦, no need to go back the park, hope it helps though.
 
 # Architecture (System Design) Skills
 
@@ -49,9 +49,25 @@ I think we are going to need a bigger torch.
 
 # Coding Skills
 
-If you thought that the system design skill was really unrepresentative of how the actual process works, imagine that the output needed to be written down in pen and paper and you're not far off of what the whiteboard interview is, which to be fair its point is more a test of whether you've done the leet question grind than anything else.
+If you thought that the system design skill was really unrepresentative of how the actual process works, imagine that the output needed to be written down in vellum and you're not far off of what the whiteboard interview is.
 
+We're not talking torches anymore, we're talking industrial lightning here.
 
+There are other relatively common approches, e.g. pair coding or live coding, which generally answer the question: 
+
+> Can you solve an arbitrary problem under an undeterminable (For the interviewer) amount of pressure in a short amount of time, generally, without access to the tools you are normally used to?
+
+I know what you are thinking:
+
+> This is why we do a take home test
+
+I love these and think that followed with a walkthrough in a interview, they can provide a lot of useful information.  The main problem with these is that the time they take to complete, which might mean losing out on candidates who really can't dedicate another 4 hours for another take home test.
 
 # Misc Tech Knowledge
+
+Surprisingly enough trivia questions are seemingly still in vogue, e.g. what's the output of ```kubectl get nodes``` or what's the difference between ADD and COPY in docker file?
+
+Defenders of this type of questions tend to argue that they are good proxies for experience in the area of the questions. I think this is generally not the case given that a lot of certifications test for this sort of knowledge. Furthermore, theoretical knowledge is relatively easy to achieve but there is no guarantees that the candidate will apply it.
+
+In fairness, the questions around these areas tend to generally be more about experience and scenario based than outright trivia questions, which to me seems fairly sensible. Sure they might be harder to evaluate than trivia questions with, almost always, a right answer but I think they provide a better guide as to the competency of the candidate.
 
