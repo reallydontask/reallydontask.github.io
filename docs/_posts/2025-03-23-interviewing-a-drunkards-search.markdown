@@ -5,7 +5,7 @@ date:   2025-03-23 11:37:24 +0100
 categories: mental meanderings
 ---
 
-The [drunkard's search principle](https://en.wikipedia.org/wiki/Streetlight_effect) is a type of observational bias that occurs when people only search for something where it is easiest to look and think this is exactly what happens with interviewing.
+The [drunkard's search principle](https://en.wikipedia.org/wiki/Streetlight_effect) is a type of observational bias that occurs when people only search for something where it is easiest to look and I think this is exactly what happens with interviewing.
 
 I lead a small team of devops engineers and I'd say that these are the core skills for my job:
 
@@ -43,15 +43,15 @@ The system design interview tends to go like this:
 
 This is to be done in 45 minutes, without access to any resources (product documentation, colleagues, dev team, etc ...) and there is no room for iteration or review, how could there be? You only have 45 minutes.
 
-If this sounds like the exact opposite of how most people go about architecting a system, well that's because architecting a system is normally a very collaborative, iterative process that relies on research, proof of concept work and those pesky users and their awkward requirements.
+If this sounds like the exact opposite of how most people go about architecting a system, well that's because architecting a system is normally a very collaborative, iterative process that relies on research, proof of concept work and those pesky users and their awkward requirements as well as all the other non-functional requirements that you don't need to think about because: we're on the cloud, man.
 
 I think we are going to need a bigger torch.
 
 # Coding Skills
 
-If you thought that the system design skill was really unrepresentative of how the actual process works, imagine that the output needed to be written down in vellum and you're not far off of what the whiteboard interview is.
+If you thought that the system design skill was really unrepresentative of how the actual process works, imagine that the output needed to be written down in velum and you're not far off of what the whiteboard interview is.
 
-We're not talking torches anymore, we're talking industrial lightning here.
+We're not talking torches anymore, we're talking football stadium lightning here.
 
 There are other relatively common approches, e.g. pair coding or live coding, which generally answer the question: 
 
@@ -61,13 +61,20 @@ I know what you are thinking:
 
 > This is why we do a take home test
 
-I love these and think that followed with a walkthrough in a interview, they can provide a lot of useful information.  The main problem with these is that the time they take to complete, which might mean losing out on candidates who really can't dedicate another 4 hours for another take home test.
+I love these and think that followed with a walkthrough in a interview, they can provide a lot of useful information.  The main problem with these is, the time they take to complete, which might mean losing out on candidates who really can't dedicate another 4 hours for another take home test.
 
 # Misc Tech Knowledge
 
-Surprisingly enough trivia questions are seemingly still in vogue, e.g. what's the output of ```kubectl get nodes``` or what's the difference between ADD and COPY in docker file?
+Surprisingly enough trivia questions are seemingly still in vogue, e.g. what's the output of ```kubectl get nodes``` or what's the difference between ADD and COPY in a docker file?
 
 Defenders of this type of questions tend to argue that they are good proxies for experience in the area of the questions. I think this is generally not the case given that a lot of certifications test for this sort of knowledge. Furthermore, theoretical knowledge is relatively easy to achieve but there is no guarantees that the candidate will apply it.
 
 In fairness, the questions around these areas tend to generally be more about experience and scenario based than outright trivia questions, which to me seems fairly sensible. Sure they might be harder to evaluate than trivia questions with, almost always, a right answer but I think they provide a better guide as to the competency of the candidate.
 
+We might be on to something here.
+
+# It gets worse
+
+Do they write good PR descriptions? Do they place value in writing documentation?  Is the candidate a gold plater? Do they validate their approach before proceeding with a complex or time consuming feature?  Do they take PR feedback personally?
+
+A list of intagebles, for want of a better word, like this could go on forever, everybody will have their own list no doubt, and these are nigh on impossible to accurately gauge in an interview and no, competency based interviews are not going to help here, for reasons previously explained. 
