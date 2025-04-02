@@ -77,4 +77,4 @@ We might be on to something here.
 
 Do they write good PR descriptions? Do they place value in writing documentation?  Is the candidate a gold plater? Do they validate their approach before proceeding with a complex or time consuming feature?  Do they take PR feedback personally?
 
-A list of intagebles, for want of a better word, like this could go on forever, everybody will have their own list no doubt, and these are nigh on impossible to accurately gauge in an interview and no, competency based interviews are not going to help here, for reasons previously explained. 
+A list of intangibles, for want of a better word, like this could go on forever, everybody will have their own list no doubt, and these are nigh on impossible to accurately gauge in an interview and no, competency based interviews are not going to help here, for reasons previously explained. 
