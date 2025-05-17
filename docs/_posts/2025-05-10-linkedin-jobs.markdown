@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Jobs: Apply First or Last"
-date:   2025-05-10 11:37:24 +0100
+title:  "LinkedIn Jobs: Apply First or Last"
+date:   2025-05-17 09:07:24 +0100
 categories: tongue cheek
 ---
 
-If you ever put a job ad on LinkedIn or a similar platform, you've probably been inundated with applications, this is what happened to us recently.
+If you ever put a job ad on LinkedIn or a similar platform, you've probably been inundated with applications, this is certainly what happened to us recently.
 
 One thing that struck me was the forgotten middle:  
 
@@ -17,9 +17,9 @@ One thing that struck me was the forgotten middle:
 
 So my takeway here is:
 
-> The early bird gets the worm, the latecomer gets the glance — the middle just gets the algorithm.
+> The early bird gets the worm, the latecomer gets the glance — the middle just feeds the algorithm.
 
-tongue off cheek now please
+tongue off cheek now please.
 
 
 
