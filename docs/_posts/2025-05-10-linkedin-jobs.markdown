@@ -11,7 +11,7 @@ One thing that struck me was the forgotten middle:
 
 1. I looked at a few of the first CVs that arrived.
 
-1. I then devised a system to sort through the literally hundreds of CVs and using that system I did a sift and selected for interview.
+1. I then devised a system to sort through the literally hundreds of CVs and using that system I did a sift of CVs.
 
 1. Most CVs after the sift were looked at because they trickled in rather than flooded in.
 
