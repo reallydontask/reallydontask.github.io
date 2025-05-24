@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Your salary, largely independent of your competence."
-date:   2025-04-06 11:37:24 +0100
+date:   2025-05-24 09:37:24 +0100
 categories: L'esprit de l'escalier
 ---
 
