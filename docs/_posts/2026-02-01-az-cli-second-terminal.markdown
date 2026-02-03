@@ -5,7 +5,7 @@ date:   2026-02-01 11:37:24 +0100
 categories: azure cli
 ---
 
-Unlike aws cli, az cli does not have the concept of profile, namely you can't do
+Unlike aws cli, az cli does not have the concept of a profile, namely you can't do
 
 ```bash
 az storage account list --profile bob
