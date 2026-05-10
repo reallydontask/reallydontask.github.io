@@ -5,7 +5,7 @@ date:   2026-05-10 09:37:24 +0100
 categories: satire
 ---
 
-[Have I been powned](https://haveibeenpwned.com/Passwords) allows you to check whether your password has ever been in a leak, as per the site:
+[Have I been pwned](https://haveibeenpwned.com/Passwords) allows you to check whether your password has ever been in a leak, as per the site:
 
 > Password reuse is extremely common and puts your accounts at risk. When credentials are exposed in data breaches, attackers can use these known email and password combinations to access your other accounts.
 > NIST guidelines specifically recommend checking user passwords against previously breached datasets. This service provides a simple, secure way to comply with these guidelines. 
