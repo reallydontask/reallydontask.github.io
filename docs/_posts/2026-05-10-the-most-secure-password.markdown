@@ -10,7 +10,7 @@ categories: satire
 > Password reuse is extremely common and puts your accounts at risk. When credentials are exposed in data breaches, attackers can use these known email and password combinations to access your other accounts.
 > NIST guidelines specifically recommend checking user passwords against previously breached datasets. This service provides a simple, secure way to comply with these guidelines. 
 
-So how secure is my go to password?
+So how secure is my go-to password?
 
 ![password](/assets/2026-05-10_password.png)
 
