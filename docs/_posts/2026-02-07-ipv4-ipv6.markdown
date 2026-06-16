@@ -1,0 +1,6 @@
+---
+layout: post
+title:  "It's not just a wire"
+date:   2026-02-07 01:27:24 +0100
+categories: mental meanderings
+---
